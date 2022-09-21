@@ -73,7 +73,6 @@ while True:
     cur.execute('SELECT * FROM users')
     users = cur.fetchall()
 
-
     # Grab a single frame of video
     ret, frame = video_capture.read()
 
@@ -118,6 +117,11 @@ while True:
                 cur.execute('UPDATE users SET status = 1 WHERE user_id = "2"')
                 conn.commit()
                 playsound("ぼくえいごうさん、こんにちは-1.wav", False)
+
+            elif name == "sonodakeiichirou" and not users[1][3]:
+                cur.execute('UPDATE users SET status = 1 WHERE user_id = "3"')
+                conn.commit()
+                playsound("そのだけいいちろうさん、こんにちは-1.wav", False)
 
             face_names.append(name)
 
